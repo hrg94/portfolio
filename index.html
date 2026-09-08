@@ -15,7 +15,16 @@
             margin-top: 10px;
         }
         img {
-            width: 300px;
+            width: 280px;
+            height: auto;
+        }
+        .certifications {
+            display: flex;
+            gap: 20px;
+        }
+
+        .certifications img {
+            width: 100px;
             height: auto;
         }
     </style>
@@ -54,11 +63,19 @@
     </details>
     <details>
         <summary>Certifications</summary>
-        <ul>
-            <li><a href="https://www.credly.com/badges/66b72c72-c491-4c8d-ba2d-ae60db0c9ab1/public_url">AWS Certified Solutions Architect – Associate</a></li>
-            <li><a href="https://www.credly.com/badges/ed69b280-5498-4d80-a55a-4f4980a0b8cf/public_url">AWS Certified SysOps Administrator – Associate</a></li>
-            <li><a href="https://www.credly.com/badges/fa8e1038-5264-4038-aba7-f442caab5aaf/public_url">AWS Certified Cloud Practitioner</a></li>
-        </ul>
+        <div class="certifications">
+            <a href="https://www.credly.com/badges/66b72c72-c491-4c8d-ba2d-ae60db0c9ab1/public_url" target="_blank" rel="noopener">
+                <img src="img/saa.png" alt="AWS Certified Solutions Architect – Associate">
+            </a>
+
+            <a href="https://www.credly.com/badges/ed69b280-5498-4d80-a55a-4f4980a0b8cf/public_url" target="_blank" rel="noopener">
+                <img src="img/soa.png" alt="AWS Certified SysOps Administrator – Associate">
+            </a>
+
+            <a href="https://www.credly.com/badges/fa8e1038-5264-4038-aba7-f442caab5aaf/public_url" target="_blank" rel="noopener">
+                <img src="img/clf.png" alt="AWS Certified Cloud Practitioner">
+            </a>
+        </div>
     </details>
     <details>
         <summary>A long time ago…</summary>
@@ -73,7 +90,7 @@
             <p>2018年7月、改装休業を伴う閉館(n回目)</p>
             <p>2018年10月、開発エンジニアを志し、面接に向かうもインフラエンジニアとして採用</p>
             <p>コードを書くことなく7年経過し、転職を目指して自己研鑽に走るも休職。</p>
-            <p>現在に至るも、元気なので試しにHTMLでポートフォリオ作ってみた。</p>
+            <p>現在に至るも、元気なので試しにGitHub/HTMLでポートフォリオ作ってみた。</p>
         </ul>
         </details>
 </body>
