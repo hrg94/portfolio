@@ -1,0 +1,23 @@
+@charset "utf-8";
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin: 30px;
+}
+.experience-list {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+img {
+    width: 280px;
+    height: auto;
+}
+.certifications {
+    display: flex;
+    gap: 20px;
+}
+
+.certifications img {
+    width: 100px;
+    height: auto;
+}
