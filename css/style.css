@@ -10,6 +10,7 @@ body {
 }
 img {
     width: 280px;
+    border-redius: 20px;
     height: auto;
 }
 .certifications {
