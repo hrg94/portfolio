@@ -1,0 +1,69 @@
+/* 1. 全体の背景：無機質でインダストリアルな「白」 */
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+      background-color: #edeae6; /* ほんのり温かみとくすみの混ざった硬質な白 */
+      color: #2b3030; /* 真っ黒ではなく、濃い鉄色 */
+      line-height: 1.8;
+      
+      /* トップページとリンクする、ごくうっすらとしたグリッド線 */
+      background-image: 
+        linear-gradient(rgba(0,0,0,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.015) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+
+    /* メインコンテナ：文字がバラバラに広がらないように中央寄せ */
+    .about-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.7); /* 半透明の白 */
+      padding: 40px;
+      border-left: 4px solid #d60010; /* 『救済の技法』の「赤」をアクセントラインに */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 3. 大見出し（h1）：テクノロジー感のあるフォントと文字間隔 */
+    h1 {
+      font-size: 2.2rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0c1212;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 10px;
+      margin-bottom: 40px;
+    }
+
+    /* 4. 中見出し・経歴の節目（h2）：カチッとしたブロックデザイン */
+    h2 {
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      background: #2b3030; /* 濃いグレーのボックス */
+      color: #ffffff;
+      display: inline-block;
+      padding: 4px 16px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      transform: skewX(-10deg); /* サイバー感を出すために少し斜めに */
+    }
+    /* 文字まで斜めになるのを防ぐ */
+    h2 span {
+      display: block;
+      transform: skewX(10deg);
+    }
+
+    /* 5. 本文（p）：読みやすさと空気感を両立 */
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      text-align: justify; /* 両端を綺麗に揃える */
+    }
+
+    /* 6. 強調したいテキストや年号など */
+    .date {
+      font-family: 'Courier New', Courier, monospace; /* 等幅フォントで機械的に */
+      font-weight: bold;
+      color: #d60010; /* 赤で目を引く */
+      margin-right: 10px;
+    }

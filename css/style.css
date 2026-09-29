@@ -1,0 +1,24 @@
+.page {
+  /* print size (page size + margin) */
+  width: 97mm;
+  height: 61mm;
+  page-break-after: always;
+}
+.page_container {
+  /* page size */
+  width: 91mm;
+  height: 55mm;
+  /* print-margin and border (margin: 3mm) */
+  left: calc(3mm - 1px);
+  top: calc(3mm - 1px);
+  border: solid gray 1px;
+}
+@media print {
+  @page {
+    size: 97mm 61mm;	/* 91x55mm + 3mm margin */
+  }
+  .page_container {
+    left: 3mm;
+    top: 3mm;
+    border: none;
+  }

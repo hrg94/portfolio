@@ -1,0 +1,111 @@
+<style>
+/* 全体のリセットと背景設定 */
+    body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+        }
+
+        /* 名刺のコンテナ（背景：黒） */
+        .name-card {
+            width: 450px;
+            height: 270px;
+            background-color: #1a1a1a; /* 高級感のあるやや薄い黒 */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* ロゴと名前を上下に分散 */
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        /* 救済の技法 */
+        .name-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 80%;
+            width: 15px;
+            height: 100%;
+            background-color: #f00; /* 企業のテーマカラー */
+        }
+
+        /* 会社ロゴ（左寄せ） */
+        .name-card-header {
+            display: flex;
+            justify-content: flex-start; /* 左寄せ */
+        }
+
+        .company-name {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+
+        .logo {
+            font-size: 16px;
+            color: #e0e0e0; /* 明るめのグレー */
+            font-weight: 900;
+            letter-spacing: 0.1em;
+        }
+        /* 名前エリア（文字：明るめのグレー） */
+        .name-card-body {
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 11px;
+            color: #777777;
+            margin-bottom: 4px;
+            letter-spacing: 0.1em;
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #e0e0e0;
+            letter-spacing: 0.2em;
+        }
+        
+        .name-ruby {
+            font-size: 11px;
+            color: #aaaaaa;
+            font-weight: normal;
+            letter-spacing: 0.15em;
+            margin-left: 6px;
+        }
+
+        /* 下部：連絡先情報エリア */
+        .name-card-footer {
+            border-top: 1px solid #eeeeee;
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #555555;
+        }
+
+        /* スマホ表示用の微調整 */
+        @media (max-width: 480px) {
+            .card {
+                width: 320px;
+                height: 192px;
+                padding: 18px;
+            }
+            .company-name { font-size: 12px; }
+            .job-title { font-size: 9px; }
+            .name { font-size: 18px; }
+            .name-ruby { font-size: 8px; }
+            .card-footer { font-size: 8px; padding-top: 8px; }
+        }
+    </style>
