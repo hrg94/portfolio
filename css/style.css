@@ -1,24 +1,164 @@
-.page {
-  /* print size (page size + margin) */
-  width: 97mm;
-  height: 61mm;
-  page-break-after: always;
+@charset "UTF-8";/*
+/* 1. 全体の背景：無機質でインダストリアルな「白」 */
+body {
+  margin: 0;
+/*  padding: 40px 20px;*/
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif;
+  background-color:  #2b3030; /* 真っ黒ではなく、濃い鉄色 */
+  color: #2b3030; /* 真っ黒ではなく、濃い鉄色 */
+  line-height: 1.8;
+  
+  /* 救済の背景 */
+  background-image: 
+    /* 1. テクノ・インダストリアル感を出す細かなグリッド（走査線・網目状テクスチャ） */
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    /* 2. アルバム特有の「アジアン・アンビエント」な深みを与える青緑のグラデーション */
+    radial-gradient(circle at 30% 40%, #112d29 0%, transparent 60%),
+    radial-gradient(circle at 80% 70%, #0d2224 0%, transparent 50%);
+  
+    /* スクロールしても背景を動かさない設定 */
+  background-attachment: fixed;
 }
-.page_container {
-  /* page size */
-  width: 91mm;
-  height: 55mm;
-  /* print-margin and border (margin: 3mm) */
-  left: calc(3mm - 1px);
-  top: calc(3mm - 1px);
-  border: solid gray 1px;
+
+/* メインコンテナ：文字がバラバラに広がらないように中央寄せ */
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8); /* 半透明の白 */
+  padding: 60px;
+  border-left: 20px solid #d60010; /* 『救済の技法』の「赤」をアクセントラインに */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
-@media print {
-  @page {
-    size: 97mm 61mm;	/* 91x55mm + 3mm margin */
+
+/* 3. 大見出し（h1）：テクノロジー感のあるフォントと文字間隔 */
+h1 {
+  font-size: 2.2rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0c1212;
+  border-bottom: 1px solid #2b3030;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+/* 4. 中見出し・経歴の節目（h2）：カチッとしたブロックデザイン */
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  background: #2b3030; /* 濃いグレーのボックス */
+  color: #ffffff;
+  display: inline-block;
+  padding: 4px 16px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  transform: skewX(-10deg); /* サイバー感を出すために少し斜めに */
+}
+/* 文字まで斜めになるのを防ぐ */
+h2 span {
+  display: block;
+  transform: skewX(10deg);
+}
+
+/* 5. 本文（p）：読みやすさと空気感を両立 */
+p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  text-align: justify; /* 両端を綺麗に揃える */
+}
+
+/* 6. 強調したいテキストや年号など */
+.date {
+  font-family: 'Courier New', Courier, monospace; /* 等幅フォントで機械的に */
+  font-weight: bold;
+  color: #d60010; /* 赤で目を引く */
+  margin-right: 10px;
+}
+
+/* ページ共通 */
+.other-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* index.html用 */
+.top-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 2.名刺のコンテナ（背景：黒） */
+.name-card {
+    width: 600px;
+    height: 360px;
+    background-color: #1a1a1a; /* 高級感のあるやや薄い黒 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ロゴと名前を上下に分散 */
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* 3.救済の技法 赤ライン */
+.name-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 20px;
+    height: 100%;
+    background-color: #f00;
+}
+
+/* 名前エリア（文字：明るめのグレー） */
+.name-card-body {
+    margin-bottom: 10px;
+}
+
+.job-title {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+}
+
+.name {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e0e0e0;
+    letter-spacing: 0.2em;
+}
+
+.name-ruby {
+    font-size: 11px;
+    color: #aaaaaa;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin-left: 6px;
+}
+
+/* 下部：白線 */
+.name-card-footer {
+    border-top: 1px solid #eeeeee;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.6;
   }
-  .page_container {
-    left: 3mm;
-    top: 3mm;
-    border: none;
-  }
+
+/* スマホ表示用の微調整 */
+@media (max-width: 768px) {
+    .name-card {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 5 / 3;
+        padding: 30px;
+    }
+}
