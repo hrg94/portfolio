@@ -225,6 +225,11 @@ p {
         aspect-ratio: 5 / 3;
         padding: 20px;
     }
+    .certifications {
+        width: 100%;
+        height: 110px;
+        padding: 20px;
+    }
     .favorite-item,
     .favorite-item.reverse {
         flex-direction: column;
