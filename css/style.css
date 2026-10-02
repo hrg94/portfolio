@@ -26,7 +26,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.8); /* 半透明の白 */
-  padding: 60px;
+  padding: 45px;
   border-right: 20px solid #d60010; /* 『救済の技法』の「赤」をアクセントラインに */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
