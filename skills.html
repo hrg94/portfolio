@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>What’s SH？</title>
+    <!-- 借り物のcss -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- オリジナルのcss -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!--ログイン認証が出来ていなければTOPへ戻す-->
+    <body onload="checkAuth()"></body>
+        <!--メニューバー設定-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="top.html">What's SH?</a>
+          
+          <!-- ハンバーガーメニュー用ボタン -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- 折りたたみ可能なメニュー -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="experience.html">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="skills.html">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="favorite.html">Favorite</a>
+              </li>
+          </ul>
+          </div>
+      </nav>
+    <!-- 背景用のCSS読み込み -->
+    <div class="content-container">
+    <!-- 本文 -->
+      <h1>Skills</h1>
+      
+      <p>
+        今までの業務を通じて身に着けた技術的なことなど<br>
+        書類に書くには少し長くなってしまう作業手順・Tipsなど。
+      </p>
+
+      <h2>AWS基盤運用</h2><br>
+      <ol> <!-- インデント用、削除禁止 -->
+        IaCの考えを元に設計・構築されたシステムのため、基本的に設定変更はCFnを使って行う。<br>
+        基盤チームのIAM Roleが一番強く、他のチームではできないCFnやCDKでの変更対応などが多かった。<br>
+        <br>
+        <li><b>AMI更新(AutoScalingサーバのローリングアップデート)</b><br>
+          アプリケーション系のチームが検証環境のEC2インスタンスへ直接変更作業を行い、基盤チームにAutoScalingサーバの更新依頼が来る。<br>
+          基盤チームは作業OKの連絡を受けたら、変更対象のEC2インスタンスよりAMIを作成し、CFnテンプレートのAMI情報を書き換える。<br>
+          準備が出来たらCFnでローリングデプロイを実行、インスタンスが入れ替わったことを確認後、主要チームに連絡。<br>
+          アプリケーション側での動作確認が問題なく終われば終了。<br>
+          本番環境側は検証環境からAMIを共有、複製して検証環境と同様のリリース手順を踏む。
+        </li><br>
+        
+        <li><b>SSM更新(パラメータストアの追加変更)</b><br>
+          追加/変更をしたいパラメータストアの情報をヒアリングし、Excelで作られたコマンド生成用のシートを使ってbatファイルを作成する。<br>
+          batの中身は「パラメータを追加・変更するCLIコマンド」「対象のパラメータの状態を確認するCLIコマンド」となっている。<br>
+          cmdからCLIに接続し、作成したバッチを実行する。結果はテキストで出力する。<br>
+          エラーが出ていないことを確認し、自作のExcelシートに確認用で実行したbatの出力結果を貼り付け、SSMパラメータストアの設定に問題がないことを確認する。<br>
+          AMI更新を実行し、1台だけ新しいインスタンスを立ち上げ、動作確認が終わったらローリングデプロイを実行して完了となる。
+        </li><br>
+
+        <li><b>Budgetsテンプレートの修正</b><br>
+          年度の切り替わりにAWSで設定しているBudgetsの予算修正を実施した。<br>
+          運用開始初年度だったこともあり、現状のテンプレートでは1年度分しか設定することが出来なかった。<br>
+          そこで、テンプレート側のyearをadd yearとeven yearとして書き換え、永年利用できるように修正した。<br>
+          奇数年と偶数年で分かりやすくした上で、修正手順をOneNoteに記載した。今も残っているはずだ。
+        </li><br>
+        
+        <li><b>定期保守対応(四半期に一回)</b><br>
+          やっていた中で一番責任が重く大変な業務。<br>
+          年に4回、システム停止をする日が決まっていて、その日にしか実行できない作業を行う。<br>
+          作業をするにあたり、開発環境での検証、検証環境リリース、システム停止日に本番環境という日程を踏まえて逆算して考えていく必要がある。<br>
+          <br>
+          例：Aurora MySQLのEOLが半年以内の場合<br>
+          アプリ系チームにバージョン検証を依頼<br>
+          ↓<br>
+          作業手順を確認、検証環境リリースに向けて策定<br>
+          ↓<br>
+          検証環境でのリリーススケジュールをチーム間で調整<br>
+          ↓<br>
+          顧客向け資料の作成(検証環境)、チーム内Rv、PM/PL Rv、承認取得<br>
+          ↓<br>
+          顧客定例で承認<br>
+          ↓<br>
+          検証環境でのリリース(定期保守の1か月前までに)<br>
+          ↓<br>
+          顧客向け資料の作成(本番環境)、チーム内Rv、PM/PL Rv、承認取得<br>
+          ↓<br>
+          顧客定例で承認<br>
+          ↓<br>
+          アプリ側(Webページへのシステム停止日の告知用html)のリリース作業(検証・本番環境)<br>
+          ↓<br>
+          計画停止・本番環境リリース<br>
+          <br>
+          といった形で、計画停止対応が必要な作業が発生するたびに、基盤側の資料作成から作業手順の策定までやっていました。<br>
+          リーダーはいましたが…実作業的な部分(CFnテンプレートの修正手順など)は私の方が詳しかったです。<br>
+        </li><br>
+      </ol> <!-- インデント用、削除禁止 -->
+
+      <h2>映像制作会社での情シス～走るヘルプデスク～</h2><br>   
+        <ol> <!-- インデント用、削除禁止 -->
+          とにかく動き回っていた4年間だった。<br>
+          人生で一番たくさんの人と会話を共にした時間で、今も遊びに行くと戻ってきてほしそうにされる。<br>
+          嬉しいけれど、気持ちは次に向いているので戻りたくはない、そんな大事な場所でやっていた仕事。<br>
+          <br>
+          <li><b>PCのキッティング</b><br>
+            多分一番やっていたであろう作業。<br>
+            対応したOSは、Mac、CentOS、Windowsと多種多様。<br>
+            WindowsとCentOSのデュアルブートマシンの構築も多かった。<br>
+            CentOSの構築手順としてはUSBインストーラーでGUIまたはCUIからOSをインストール。<br>
+            yum updateやサーバのマウントをして、GPUドライバのインストールをしてMayaやPythonの内製ツールを入れてお渡しするまで。<br>
+            Windowsはシステム部持ちのADでしたが、MacとLinuxは今は亡きMac専用アプリのServersでLDAPアカウントの管理をしていました。
+          </li>
+          <br>
+          <li><b>サーバのデータ管理</b><br>
+            やはり、映像系なのでどうしてもデータが重くなってくる。<br>
+            スプレッドシートにサーバごと、ディレクトリごとの使用容量を載せたシートを全員に展開し、移動可能なプロジェクトやデータ削減を募る。<br>
+            移動可能なものは過去データ用にrsyncでコピーし、元の場所からは削除、lnでシンボリックリンクを貼る。
+          </li>
+          <br>
+          <li><b>ヘルプデスク的なこと</b><br>
+            PC周りに関するクレーム対応など。<br>
+            PCの空き容量を気にせずに作業している人もいたので、Disk Fullの人のキャッシュ削除なんかも対応。<br>
+            席替えの度に台車にPCやモニターを載せて走り回っていた。<br>
+            コロナ渦はSplashtopでリモートしており、接続が切れると再起動依頼が来るのでサービス再起動をするなど。
+          </li>
+          <br>
+          <li><b>要望を聞いてみる</b><br>
+            PMから「納品データにメタデータが残ってしまうから、一発で消せるツールを作ってほしい。<br>
+            と、頼まれて対象ディレクトリにコピペして実行するとメタデータをせるやつを作ったことがある。<br>
+            また、情シスの上司より「Windowsも自動でサーバにマウントできたらいいのにな。」と言われ、作った。<br>
+            batに単純にコマンドと対象のサーバを書いただけだったが、自分も作業的に楽になった。
+          </li>
+        </ol> <!-- インデント用、削除禁止 -->
+      <h2>最近取り組んでいること</h2><br>
+      ほぼ趣味レベルで勉強中。
+        <ol> <!-- インデント用、削除禁止 -->
+          <li><b>Python3</b><br>
+            何度目かの挑戦。Paizaで簡単な問題を解きながら文法の意味を理解している最中。
+          </li>
+          <br>
+          <li><b>HTML+CSS</b><br>
+            このポートフォリオを作るために始めた。たまにJavaScriptも使っているけれど全然分からない。<br>
+            なんとなく、CSSとHTMLの関係性は理解してきた。<br>
+            将来的にレザークラフト作品を管理するサイトを作りたいと思っている。
+          </li>
+          <br>
+          <li><b>Git,GitHub</b><br>
+            ポートフォリオサイトを公開するためにアカウントを開設。<br>
+            空のディレクトリは作れないんかい!!などと突っ込んでいるぐらい使いこなせていない。<br>
+            ちょっとした作りたいものがあるので、できたら公開してみたい。
+          </li>
+        </ol> <!-- インデント用、削除禁止 -->
+        
+      <!-- ハンバーガー用Java -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>What’s SH？</title>
+    <!-- 借り物のcss -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- オリジナルのcss -->
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!--ログイン認証が出来ていなければTOPへ戻す-->
+    <body onload="checkAuth()"></body>
+      <!--メニューバー設定-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="top.html">What's SH?</a>
+          
+          <!-- ハンバーガーメニュー用ボタン -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- 折りたたみ可能なメニュー -->
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="experience.html">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="skills.html">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="favorite.html">Favorite</a>
+              </li>
+          </ul>
+          </div>
+      </nav>
+    <!-- 背景用のCSS読み込み -->
+    <div class="content-container">
+    <!-- 本文 -->
+     <h1>趣味と人となりのコーナー</h1>
+      <section class="favorite-item">
+        <img src="img/cat.png" alt="猫">
+        <div class="favorite-text">
+          <h2>猫</h2>
+          <p>
+            猫の空(くう)♀ 2023年10月生まれ<br>
+            母が突然猫を飼うと言い出し、ペットショップからやってきた。<br>
+            猪の革を広げた時、寝そべっていて野生を感じた笑
+          </p>
+        </div>
+      </section>
+
+      <section class="favorite-item reverse">
+        <img src="img/live.png" alt="ライブ">
+        <div class="favorite-text">
+          <h2>ライブ</h2>
+          <p>
+            2013年4月、Shibuya AXで行われた布袋寅泰のライブが人生初だった。<br>
+            吉川晃司も追いかけている。筋肉少女帯も見に行く。<br>
+            若手枠はVaundy。自分軸がはっきりしていて才能に溢れているところが良い。<br>
+            インディーズのバックドロップシンデレラや打首獄門同好会、その周辺のバンドも好き。<br>
+            本ポートフォリオのメインテーマは「救済の技法」。平沢進の世界観が好き。
+          </p>
+        </div>
+      </section>
+
+      <section class="favorite-item">
+        <img src="img/movie.png" alt="映画">
+        <div class="favorite-text">
+          <h2>映画</h2>
+          <p>
+            フリーター時代から、池袋でよく映画を観ていた。<br>
+            それも、古い映画をたくさん。<br>
+            一番好きな映画は「太陽を盗んだ男」、次点が「狂った野獣」。<br>
+            菅原文太と渡瀬恒彦が好きですというと大体年齢詐称を疑われがち…<br>
+            定期券を失ってからすっかり足が遠のいてしまった。<br>
+          </p>
+        </div>
+      </section>
+
+      <section class="favorite-item reverse">
+        <img src="img/leather.png" alt="レザークラフト">
+        <div class="favorite-text">
+          <h2>レザークラフト</h2>
+          <p>
+            休職して半年が経った頃、ようやく自分から何かをしようと思えた時に開始。<br>
+            先に始めていた友人に端切れを貰って小物をつくるなど。<br>
+            ライブで再会できた人に渡すために靴べらを20本作ったりした。<br>
+            今は生活基盤の安定が最優先のため、一時的に制作を停止中。早く再開したい!!
+          </p>
+        </div>
+      </section>
+    </div>
+      <!-- ハンバーガー用Java -->
+      <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

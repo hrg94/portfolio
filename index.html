@@ -10,49 +10,26 @@
 </head>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- メニューバー -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="./">What's SH?</a>
-        
-        <!-- ハンバーガーメニュー用ボタン -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <!-- 折りたたみ可能なメニュー -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="works.html">Works</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="skills.html">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="certification.html">Certifications</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favorite">Favorite</a>
-            </li>
-        </ul>
-        </div>
+        <a class="navbar-brand" aria-current="page" href="./">What's SH?</a>
     </nav>
+
     <!-- 名刺ブロック -->
     <main class="top-page">  
       <div class="name-card">
-          <!-- ヘッダー -->
+        <!-- ヘッダー -->
           <div class="name-card-header">
           </div>
-
-          <!-- 役職・氏名 -->
+          <!-- ログイン機構 -->
           <div class="name-card-body">
-              <div class="job-title">Infrastructure Engineer</div>
-              <div class="name">原賀 早紀<span class="name-ruby">HARAGA SAKI</span></div>
+              <script src="js/auth.js"></script>
+              <div class="job-title">パスワードを入力してください</div>
+                <input type="password" id="password">
+                <button onclick="login()">Enter</button>
+              <div class="name"></div>
           </div>
-
           <!-- フッター -->
           <div class="name-card-footer">
               </div>
