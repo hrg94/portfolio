@@ -220,11 +220,12 @@ p {
 /* スマホ表示用の微調整 */
 @media (max-width: 768px) {
     .name-card {
-        width: 90%;
+        width: 100%;
         height: auto;
         aspect-ratio: 5 / 3;
         padding: 30px;
       }
+    .content-container,
     .favorite-item,
     .favorite-item.reverse {
     flex-direction: column;
