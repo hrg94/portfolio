@@ -23,7 +23,7 @@ body {
 
 /* メインコンテナ：文字がバラバラに広がらないように中央寄せ */
 .content-container {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.8); /* 半透明の白 */
   padding: 60px;
@@ -219,7 +219,12 @@ p {
 
 /* スマホ表示用の微調整 */
 @media (max-width: 768px) {
-    .name-card,
+    .name-card {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 5 / 3;
+        padding: 30px;
+      }
     .content-container,
     .favorite-item,
     .favorite-item.reverse {
