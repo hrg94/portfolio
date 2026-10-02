@@ -227,7 +227,7 @@ p {
     }
     .certifications {
         width: 100%;
-        height: 110px;
+        height: auto;
         padding: 20px;
     }
     .favorite-item,
