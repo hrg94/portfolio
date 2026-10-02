@@ -22,13 +22,14 @@ body {
 }
 
 /* メインコンテナ：文字がバラバラに広がらないように中央寄せ */
-.about-container {
-  max-width: 1000px;
+.content-container {
+  max-width: 900px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.8); /* 半透明の白 */
   padding: 60px;
-  border-left: 20px solid #d60010; /* 『救済の技法』の「赤」をアクセントラインに */
+  border-right: 20px solid #d60010; /* 『救済の技法』の「赤」をアクセントラインに */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
 /* 3. 大見出し（h1）：テクノロジー感のあるフォントと文字間隔 */
@@ -63,11 +64,11 @@ h2 span {
 /* 5. 本文（p）：読みやすさと空気感を両立 */
 p {
   font-size: 0.95rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-align: justify; /* 両端を綺麗に揃える */
 }
 
-/* 6. 強調したいテキストや年号など */
+/* 6. 赤字強調したいテキストや年号など */
 .date {
   font-family: 'Courier New', Courier, monospace; /* 等幅フォントで機械的に */
   font-weight: bold;
@@ -75,12 +76,14 @@ p {
   margin-right: 10px;
 }
 
-/* ページ共通 */
-.other-page {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+/* 7. 強調したいテキスト */
+.service {
+  font-size: 18px;
+  font-weight: bold;
+  color: #191ba3; 
+  margin-right: 10px;
 }
+
 
 /* index.html用 */
 .top-page {
@@ -153,6 +156,67 @@ p {
     line-height: 1.6;
   }
 
+/* Certificationの枠*/
+.certifications {
+    width: 700px;
+    height: 100px;
+    background-color: #2b3030; /* 高級感のあるやや薄い黒 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+.certifications-date {
+    font-size: 12px;
+    color: #e0e0e0;
+    margin-bottom: 4px;
+    letter-spacing: 0.1em;
+}
+
+.certifications-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #e0e0e0;
+    letter-spacing: 0.2em;
+}
+
+/* 下部：白線 */
+.certifications-footer {
+    border-top: 2px solid rgba(255, 0, 0, 0.695);
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 1.6;
+  }
+
+/* お気に入りページ用*/
+.favorite-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 70px;
+}
+
+.favorite-item img {
+  width: 40%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+}
+
+.favorite-text {
+  flex: 1;
+}
+
+.favorite-item.reverse {
+  flex-direction: row-reverse;
+}
+
 /* スマホ表示用の微調整 */
 @media (max-width: 768px) {
     .name-card {
@@ -160,5 +224,13 @@ p {
         height: auto;
         aspect-ratio: 5 / 3;
         padding: 30px;
-    }
+      }
+    .favorite-item,
+    .favorite-item.reverse {
+    flex-direction: column;
+      }
+    .favorite-item img {
+    width: 100%;
+    max-width: none;
+      }
 }
