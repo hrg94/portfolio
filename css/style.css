@@ -156,6 +156,39 @@ p {
     line-height: 1.6;
   }
 
+/* aboutの名前書式*/
+.about-me {
+    position: relative;
+    width: fit-content;
+    padding-left: 25px;
+}
+.about-me:before {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border: none;
+  border-left: solid 20px transparent;
+  border-bottom: solid 20px #0c1212;
+}
+.about-me:after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 10px;
+  right: 0;
+  border-bottom: solid 4px #0c1212;
+}
+.about-me-ruby {
+    font-size: 15px;
+    color: #777777;
+    font-weight: normal;
+    letter-spacing: 0.15em;
+    margin-left: 6px;
+}
+
 /* Certificationの枠*/
 .certifications {
     width: 700px;
@@ -163,7 +196,7 @@ p {
     background-color: #2b3030; /* 高級感のあるやや薄い黒 */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    padding: 40px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -185,14 +218,14 @@ p {
     letter-spacing: 0.2em;
 }
 
-/* 下部：白線 */
+/* 下部：赤線 */
 .certifications-footer {
-    border-top: 2px solid rgba(255, 0, 0, 0.695);
+    border-top: 3px solid rgba(255, 0, 0, 0.695);
     padding-top: 12px;
     display: flex;
     justify-content: space-between;
     line-height: 1.6;
-  }
+ }
 
 /* お気に入りページ用*/
 .favorite-item {
